@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using BooksRus.Models;
+
 namespace BooksRus;
 
 public class Program
@@ -7,7 +11,12 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
+        builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
         builder.Services.AddControllersWithViews();
+
+        builder.Services.AddDbContext<BookstoreContext>(options =>
+          options.UseSqlite(builder.Configuration.GetConnectionString("BookstoreContext") ?? throw new InvalidOperationException("Connection string 'LittleLemonContext' not found.")));
 
         var app = builder.Build();
 
