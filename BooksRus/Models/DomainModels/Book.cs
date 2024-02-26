@@ -1,26 +1,31 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;    // for ValidateNever
 
-namespace BooksRus.Models;
-
-public partial class Book
+namespace BooksRus.Models
 {
-    public int BookId { get; set; }
+    public partial class Book
+    {
+        // initialize navigation property collection in constructor
+        public Book() => Authors = new HashSet<Author>();
 
-    [Required(ErrorMessage = "Please enter a title.")]
-    [MaxLength(200)]
-    public string Title { get; set; }
+        // primary key property
+        public int BookId { get; set; }
 
-    [Range(0.0, 1000000.0, ErrorMessage = "Price must be more than 0.")]
-    public double Price { get; set; }
+        [Required(ErrorMessage = "Please enter a title.")]
+        [MaxLength(200)]
+        public string Title { get; set; } = string.Empty;
 
-    // foreign key property
-    [Required(ErrorMessage = "Please select a genre.")]
-    public string GenreId { get; set; }
+        [Range(1.0, 1000000.0, ErrorMessage = "Price must be 1 or more.")]
+        public double Price { get; set; }
 
-    // navigation properties
-    public Genre Genre { get; set; }
-    public ICollection<BookAuthor> BookAuthors { get; set; }
+        // foreign key property
+        [Required(ErrorMessage = "Please select a genre.")]
+        public string GenreId { get; set; } = string.Empty;
+
+        // navigation properties
+        [ValidateNever]
+        public Genre Genre { get; set; } = null!;
+        public ICollection<Author> Authors { get; set; }
+
+    }
 }
-

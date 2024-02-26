@@ -16,6 +16,173 @@ namespace BooksRus.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
 
+            modelBuilder.Entity("AuthorBook", b =>
+                {
+                    b.Property<int>("AuthorsAuthorId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BooksBookId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("AuthorsAuthorId", "BooksBookId");
+
+                    b.HasIndex("BooksBookId");
+
+                    b.ToTable("AuthorBook");
+
+                    b.HasData(
+                        new
+                        {
+                            AuthorsAuthorId = 18,
+                            BooksBookId = 1
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 20,
+                            BooksBookId = 2
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 7,
+                            BooksBookId = 3
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 2,
+                            BooksBookId = 4
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 19,
+                            BooksBookId = 5
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 8,
+                            BooksBookId = 6
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 12,
+                            BooksBookId = 7
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 16,
+                            BooksBookId = 8
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 2,
+                            BooksBookId = 9
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 20,
+                            BooksBookId = 10
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 15,
+                            BooksBookId = 11
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 4,
+                            BooksBookId = 12
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 21,
+                            BooksBookId = 13
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 5,
+                            BooksBookId = 14
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 9,
+                            BooksBookId = 15
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 13,
+                            BooksBookId = 16
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 7,
+                            BooksBookId = 17
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 4,
+                            BooksBookId = 18
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 11,
+                            BooksBookId = 19
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 22,
+                            BooksBookId = 20
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 17,
+                            BooksBookId = 21
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 3,
+                            BooksBookId = 22
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 14,
+                            BooksBookId = 23
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 1,
+                            BooksBookId = 24
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 10,
+                            BooksBookId = 25
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 6,
+                            BooksBookId = 26
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 23,
+                            BooksBookId = 27
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 4,
+                            BooksBookId = 28
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 26,
+                            BooksBookId = 28
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 25,
+                            BooksBookId = 29
+                        });
+                });
+
             modelBuilder.Entity("BooksRus.Models.Author", b =>
                 {
                     b.Property<int>("AuthorId")
@@ -419,173 +586,6 @@ namespace BooksRus.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BooksRus.Models.BookAuthor", b =>
-                {
-                    b.Property<int>("BookId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("BookId", "AuthorId");
-
-                    b.HasIndex("AuthorId");
-
-                    b.ToTable("BookAuthors");
-
-                    b.HasData(
-                        new
-                        {
-                            BookId = 1,
-                            AuthorId = 18
-                        },
-                        new
-                        {
-                            BookId = 2,
-                            AuthorId = 20
-                        },
-                        new
-                        {
-                            BookId = 3,
-                            AuthorId = 7
-                        },
-                        new
-                        {
-                            BookId = 4,
-                            AuthorId = 2
-                        },
-                        new
-                        {
-                            BookId = 5,
-                            AuthorId = 19
-                        },
-                        new
-                        {
-                            BookId = 6,
-                            AuthorId = 8
-                        },
-                        new
-                        {
-                            BookId = 7,
-                            AuthorId = 12
-                        },
-                        new
-                        {
-                            BookId = 8,
-                            AuthorId = 16
-                        },
-                        new
-                        {
-                            BookId = 9,
-                            AuthorId = 2
-                        },
-                        new
-                        {
-                            BookId = 10,
-                            AuthorId = 20
-                        },
-                        new
-                        {
-                            BookId = 11,
-                            AuthorId = 15
-                        },
-                        new
-                        {
-                            BookId = 12,
-                            AuthorId = 4
-                        },
-                        new
-                        {
-                            BookId = 13,
-                            AuthorId = 21
-                        },
-                        new
-                        {
-                            BookId = 14,
-                            AuthorId = 5
-                        },
-                        new
-                        {
-                            BookId = 15,
-                            AuthorId = 9
-                        },
-                        new
-                        {
-                            BookId = 16,
-                            AuthorId = 13
-                        },
-                        new
-                        {
-                            BookId = 17,
-                            AuthorId = 7
-                        },
-                        new
-                        {
-                            BookId = 18,
-                            AuthorId = 4
-                        },
-                        new
-                        {
-                            BookId = 19,
-                            AuthorId = 11
-                        },
-                        new
-                        {
-                            BookId = 20,
-                            AuthorId = 22
-                        },
-                        new
-                        {
-                            BookId = 21,
-                            AuthorId = 17
-                        },
-                        new
-                        {
-                            BookId = 22,
-                            AuthorId = 3
-                        },
-                        new
-                        {
-                            BookId = 23,
-                            AuthorId = 14
-                        },
-                        new
-                        {
-                            BookId = 24,
-                            AuthorId = 1
-                        },
-                        new
-                        {
-                            BookId = 25,
-                            AuthorId = 10
-                        },
-                        new
-                        {
-                            BookId = 26,
-                            AuthorId = 6
-                        },
-                        new
-                        {
-                            BookId = 27,
-                            AuthorId = 23
-                        },
-                        new
-                        {
-                            BookId = 28,
-                            AuthorId = 4
-                        },
-                        new
-                        {
-                            BookId = 28,
-                            AuthorId = 26
-                        },
-                        new
-                        {
-                            BookId = 29,
-                            AuthorId = 25
-                        });
-                });
-
             modelBuilder.Entity("BooksRus.Models.Genre", b =>
                 {
                     b.Property<string>("GenreId")
@@ -629,6 +629,21 @@ namespace BooksRus.Migrations
                         });
                 });
 
+            modelBuilder.Entity("AuthorBook", b =>
+                {
+                    b.HasOne("BooksRus.Models.Author", null)
+                        .WithMany()
+                        .HasForeignKey("AuthorsAuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BooksRus.Models.Book", null)
+                        .WithMany()
+                        .HasForeignKey("BooksBookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("BooksRus.Models.Book", b =>
                 {
                     b.HasOne("BooksRus.Models.Genre", "Genre")
@@ -638,35 +653,6 @@ namespace BooksRus.Migrations
                         .IsRequired();
 
                     b.Navigation("Genre");
-                });
-
-            modelBuilder.Entity("BooksRus.Models.BookAuthor", b =>
-                {
-                    b.HasOne("BooksRus.Models.Author", "Author")
-                        .WithMany("BookAuthors")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BooksRus.Models.Book", "Book")
-                        .WithMany("BookAuthors")
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Author");
-
-                    b.Navigation("Book");
-                });
-
-            modelBuilder.Entity("BooksRus.Models.Author", b =>
-                {
-                    b.Navigation("BookAuthors");
-                });
-
-            modelBuilder.Entity("BooksRus.Models.Book", b =>
-                {
-                    b.Navigation("BookAuthors");
                 });
 
             modelBuilder.Entity("BooksRus.Models.Genre", b =>

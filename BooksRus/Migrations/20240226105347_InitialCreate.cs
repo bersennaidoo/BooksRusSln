@@ -60,24 +60,24 @@ namespace BooksRus.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BookAuthors",
+                name: "AuthorBook",
                 columns: table => new
                 {
-                    BookId = table.Column<int>(type: "INTEGER", nullable: false),
-                    AuthorId = table.Column<int>(type: "INTEGER", nullable: false)
+                    AuthorsAuthorId = table.Column<int>(type: "INTEGER", nullable: false),
+                    BooksBookId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BookAuthors", x => new { x.BookId, x.AuthorId });
+                    table.PrimaryKey("PK_AuthorBook", x => new { x.AuthorsAuthorId, x.BooksBookId });
                     table.ForeignKey(
-                        name: "FK_BookAuthors_Authors_AuthorId",
-                        column: x => x.AuthorId,
+                        name: "FK_AuthorBook_Authors_AuthorsAuthorId",
+                        column: x => x.AuthorsAuthorId,
                         principalTable: "Authors",
                         principalColumn: "AuthorId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookAuthors_Books_BookId",
-                        column: x => x.BookId,
+                        name: "FK_AuthorBook_Books_BooksBookId",
+                        column: x => x.BooksBookId,
                         principalTable: "Books",
                         principalColumn: "BookId",
                         onDelete: ReferentialAction.Cascade);
@@ -164,46 +164,46 @@ namespace BooksRus.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "BookAuthors",
-                columns: new[] { "AuthorId", "BookId" },
+                table: "AuthorBook",
+                columns: new[] { "AuthorsAuthorId", "BooksBookId" },
                 values: new object[,]
                 {
-                    { 18, 1 },
-                    { 20, 2 },
-                    { 7, 3 },
-                    { 2, 4 },
-                    { 19, 5 },
-                    { 8, 6 },
-                    { 12, 7 },
-                    { 16, 8 },
-                    { 2, 9 },
-                    { 20, 10 },
-                    { 15, 11 },
-                    { 4, 12 },
-                    { 21, 13 },
-                    { 5, 14 },
-                    { 9, 15 },
-                    { 13, 16 },
-                    { 7, 17 },
-                    { 4, 18 },
-                    { 11, 19 },
-                    { 22, 20 },
-                    { 17, 21 },
-                    { 3, 22 },
-                    { 14, 23 },
                     { 1, 24 },
-                    { 10, 25 },
-                    { 6, 26 },
-                    { 23, 27 },
+                    { 2, 4 },
+                    { 2, 9 },
+                    { 3, 22 },
+                    { 4, 12 },
+                    { 4, 18 },
                     { 4, 28 },
-                    { 26, 28 },
-                    { 25, 29 }
+                    { 5, 14 },
+                    { 6, 26 },
+                    { 7, 3 },
+                    { 7, 17 },
+                    { 8, 6 },
+                    { 9, 15 },
+                    { 10, 25 },
+                    { 11, 19 },
+                    { 12, 7 },
+                    { 13, 16 },
+                    { 14, 23 },
+                    { 15, 11 },
+                    { 16, 8 },
+                    { 17, 21 },
+                    { 18, 1 },
+                    { 19, 5 },
+                    { 20, 2 },
+                    { 20, 10 },
+                    { 21, 13 },
+                    { 22, 20 },
+                    { 23, 27 },
+                    { 25, 29 },
+                    { 26, 28 }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookAuthors_AuthorId",
-                table: "BookAuthors",
-                column: "AuthorId");
+                name: "IX_AuthorBook_BooksBookId",
+                table: "AuthorBook",
+                column: "BooksBookId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Books_GenreId",
@@ -215,7 +215,7 @@ namespace BooksRus.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BookAuthors");
+                name: "AuthorBook");
 
             migrationBuilder.DropTable(
                 name: "Authors");
