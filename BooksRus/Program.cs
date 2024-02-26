@@ -36,8 +36,12 @@ public class Program
         app.UseAuthorization();
 
         app.MapControllerRoute(
+           name: "page_sort",
+           pattern: "{controller}/{action}/page/{pagenumber}/size/{pagesize}/sort/{sortfield}/{sortdirection}");
+
+        app.MapControllerRoute(
             name: "default",
-            pattern: "{controller=Home}/{action=Index}/{id?}");
+            pattern: "{controller=Home}/{action=Index}/{id?}/{slug?}");
 
         app.Run();
     }
