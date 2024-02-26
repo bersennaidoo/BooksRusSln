@@ -13,6 +13,9 @@ public class Program
         // Add services to the container.
         builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
+        builder.Services.AddMemoryCache();
+        builder.Services.AddSession();
+
         builder.Services.AddControllersWithViews();
 
         builder.Services.AddDbContext<BookstoreContext>(options =>
@@ -32,6 +35,8 @@ public class Program
         app.UseStaticFiles();
 
         app.UseRouting();
+
+        app.UseSession();
 
         app.UseAuthorization();
 
