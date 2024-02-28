@@ -39,6 +39,17 @@ public class AuthorController : Controller
 
         return View(vm);
     }
+
+    public IActionResult Details(int id)
+    {
+        var author = data.Get(new QueryOptions<Author> 
+        {
+           Where = a => a.AuthorId == id,
+           Includes = "Books"
+        }) ?? new Author();
+
+        return View(author);
+    }
 }
 
 
