@@ -21,6 +21,12 @@ public class Program
         builder.Services.AddDbContext<BookstoreContext>(options =>
           options.UseSqlite(builder.Configuration.GetConnectionString("BookstoreContext") ?? throw new InvalidOperationException("Connection string 'LittleLemonContext' not found.")));
 
+
+        builder.Services.AddHttpContextAccessor();
+        //builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+        builder.Services.AddTransient<IBookRepository, BookRepository>();
+        builder.Services.AddTransient<ICart, Cart>();
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.

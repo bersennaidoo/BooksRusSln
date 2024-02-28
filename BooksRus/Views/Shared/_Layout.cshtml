@@ -1,6 +1,8 @@
-﻿@{
+@inject ICart cart
+
+@{
     // get cart from session
-    var cart = new Cart(Context);
+    //var cart = new Cart(Context);
 
     // use current controller or area to determine if tab is active
     var current = ViewContext.RouteData.Values["area"]?.ToString() ?? 
